@@ -1,410 +1,370 @@
-# Create-PRD — Шаблон и инструкция по созданию PRD
+# Product Requirements Document (PRD)
 
-> Этот документ предназначен для людей и AI-агентов (в т.ч. Cursor).
-> Критерии приёмки заданы в формате GIVEN/WHEN/THEN для прямой связи с тестами.
-> Основано на практиках agentic product development и контекстной разработке.
-
----
-
-## Инструкция по использованию
-
-1. Для каждой новой фичи создайте PRD на основе этого шаблона.
-2. Сохраняйте файл как `docs/prds/PRD-[feature-name].md`.
-3. Заполните все разделы; неизвестное помечайте как `[TBD]`.
-4. После согласования PRD считается источником истины для реализации.
-
-**Для Cursor:** при запросе «создай PRD для [название фичи]» используйте структуру ниже и сохраните результат в `docs/prds/PRD-[feature-name].md`.
+A template for collaborative work between product teams and autonomous development agents.  
+Acceptance conditions use structured rules so they can be mapped directly to tests and automation.
 
 ---
 
-# PRD: [Feature/Product Name]
+## Document Metadata
 
-**Status**: Draft | In Review | Approved | In Progress | Complete  
-**Author**: [Name or Agent]  
-**Created**: YYYY-MM-DD  
-**Last Updated**: YYYY-MM-DD  
-**Priority**: P0 (critical) | P1 (high) | P2 (medium) | P3 (low)  
-**Reviewers**: [Names]
-
----
-
-## 1. Objective
-
-[1–2 предложения: что мы делаем и зачем? Какую проблему пользователя решаем?]
-
-### Mission
-
-[Миссия продукта для этой фичи. Какому принципу она служит?]
-
-### Core Principles
-
-1. [Принцип 1]
-2. [Принцип 2]
-3. [Принцип 3]
+| Field | Value |
+|------|----------|
+| **PRD** | [Feature / Capability Name] |
+| **Stage** | Draft \| Review \| Approved \| Building \| Released |
+| **Owner** | [Product Manager / Agent] |
+| **Created** | YYYY-MM-DD |
+| **Updated** | YYYY-MM-DD |
+| **Priority** | P0 \| P1 \| P2 \| P3 |
+| **Stakeholders** | [Names or teams] |
 
 ---
 
-## 2. Problem Statement
+## 1. Overview
 
-### What problem are we solving?
+### Feature Summary
 
-[Опишите пользовательскую или бизнес-проблему. Укажите метрики, цитаты из исследований, объёмы обращений в поддержку, пробелы относительно конкурентов.]
+Describe briefly what this feature introduces and the main value it delivers to the user.
 
-### Who has this problem?
+> **Example:** This feature allows users to create automated reports from analytics data and export them as scheduled emails.
 
-[Целевая аудитория: персоны, сценарии, уровень экспертизы, контекст.]
+### Strategic Goal
 
-### How do we know this is real?
-
-[Данные: исследования, аналитика, обратная связь, рынок. Оцените влияние.]
-
-### What happens if we don't solve it?
-
-[Последствия бездействия: отток, потери выручки, проигрыш конкурентам.]
+Explain how this feature supports the product strategy or roadmap.
 
 ---
 
-## 3. Target Users
+## 2. Problem Description
 
-[Кто получает выгоду от фичи? Какой у них уровень технической подготовки? Ключевые потребности?]
+### Current Situation
+
+Describe how things work today.
+
+### User Pain Points
+
+Main difficulties users face:
+
+- Pain point 1  
+- Pain point 2  
+- Pain point 3  
+
+### Evidence
+
+Supporting information such as:
+
+- analytics data  
+- support tickets  
+- user interviews  
+- competitive gaps  
+
+### Impact if Ignored
+
+What happens if the problem remains unsolved.
 
 ---
 
-## 4. User Stories
+## 3. Target Audience
 
-### US-1: [Imperative Title]
+| Segment | Description | Needs |
+|---------|-------------|--------|
+| [Segment name] | [Who they are] | [Primary need] |
 
-**As a** [persona]  
-**I want to** [action]  
-**So that** [benefit]
+Include relevant characteristics:
 
-**Acceptance Criteria:**
+- experience level  
+- environment (mobile / desktop)  
+- technical knowledge  
+
+---
+
+## 4. User Scenarios
+
+Describe the core workflows supported by the feature.
+
+### Scenario 1 — [Action Title]
+
+**User role:** [persona]
+
+**Goal:** The user wants to perform an action in order to achieve a specific outcome.
+
+**Acceptance Conditions:**
 
 ```
-GIVEN [precondition]
+GIVEN [initial state]
+WHEN [user performs action]
+THEN [system produces result]
+
+GIVEN [state]
 WHEN [action]
-THEN [expected result]
-AND [additional assertion]
+THEN [result]
+AND [extra validation]
 ```
 
+**Example Cases:**
+
+| Request | Result |
+|---------|--------|
+| `{email:"test@test.com"}` | `{status:201, user_id:"abc123"}` |
+| `{email:""}` | `{status:400, error:"email required"}` |
+
+- **Estimated Effort:** Small \| Medium \| Large  
+- **Blocked By:** [dependency]
+
+---
+
+### Scenario 2 — [Action Title]
+
+**User role:** [persona]
+
+**Goal:** The user performs another task enabled by the feature.
+
+**Acceptance Conditions:**
+
 ```
-GIVEN [precondition]
+GIVEN [condition]
 WHEN [action]
-THEN [expected result]
+THEN [expected outcome]
 ```
 
-**Examples:**
-
-| Input | Expected Output |
-|-------|-----------------|
-| `{"email": "valid@test.com"}` | `{"status": 201, "id": "usr_xxx"}` |
-| `{"email": ""}` | `{"status": 400, "error": "Email required"}` |
-
-**Complexity**: S (hours) | M (1–2 days) | L (3–5 days)  
-**Dependencies**: None
+- **Estimated Effort:** Small \| Medium \| Large  
+- **Blocked By:** Scenario 1  
 
 ---
 
-### US-2: [Imperative Title]
+## 5. Functional Scope
 
-**As a** [persona]  
-**I want to** [action]  
-**So that** [benefit]
+### Included
 
-**Acceptance Criteria:**
+- Capability A  
+- Capability B  
+- Capability C  
 
-```
-GIVEN [precondition]
-WHEN [action]
-THEN [expected result]
-```
+### Excluded
 
-**Complexity**: S | M | L  
-**Dependencies**: US-1
+| Item | Reason |
+|------|--------|
+| Feature X | Planned for future version |
+| Feature Y | Out of project scope |
 
----
+### Potential Extensions
 
-## 5. Scope
-
-### In Scope
-
-- [Фича/возможность 1]
-- [Фича/возможность 2]
-
-### Out of Scope
-
-- [Исключённый пункт 1] — Причина: [почему]
-- [Исключённый пункт 2] — Причина: [почему]
-
-### Future Considerations
-
-- [Возможное развитие позже]
-
-> **Правило для агента:** не реализовывать пункты из «Out of Scope» и «Future Considerations».
+Ideas that may be implemented later.
 
 ---
 
-## 6. Technical Context
+## 6. Technical Environment
 
-### Relevant Files
+### Relevant Components
 
-| File | Purpose |
-|------|---------|
-| `[path]/[file]` | Логика для расширения |
-| `[path]/[file]` | Модель данных для изменения |
-| `[test path]/[file]` | Существующие паттерны тестов |
+| Location | Description |
+|----------|-------------|
+| `src/...` | Module to update |
+| `api/...` | API layer |
+| `tests/...` | Existing test reference |
 
-### Existing Patterns to Follow
+### Coding Pattern Reference
 
+Example snippet illustrating architecture or design pattern. Agents should replicate this style.
+
+### Data Layer Updates
+
+Describe database modifications or new tables.
+
+> **Example:**  
+> `table reports` — id, user_id, schedule, created_at  
+
+### API Specification
+
+**POST** `/reports`
+
+**Request:**
+```json
+{
+  "user_id": "string",
+  "schedule": "string"
+}
 ```
-// Вставьте реальный фрагмент кода из проекта, который агент должен повторять
+
+**Response:**
+```json
+{
+  "id": "string",
+  "created": true
+}
 ```
 
-### Data Model Changes (if applicable)
-
-```
--- Опишите изменения схемы при необходимости
-```
-
-### API Changes (if applicable)
-
-```
-METHOD /endpoint
-  Request:  { field: type }
-  Response: { field: type }
-  Errors:   [relevant error codes]
-```
+**Possible errors:** 400 invalid request · 403 unauthorized · 500 internal error  
 
 ### Constraints
 
-- [Техническое ограничение, напр. совместимость с текущей авторизацией]
-- [Ограничение по производительности, напр. p95 < 200ms]
-- [Совместимость, напр. Safari 14+]
-
-### Dependencies
-
-| Dependency | Owner | Status | Risk if Delayed |
-|------------|-------|--------|-----------------|
-| [API/service] | [team] | [status] | [impact] |
+- Must integrate with existing authentication system  
+- Response time target: &lt; 200ms (p95)  
+- Browser compatibility: modern browsers  
 
 ---
 
-## 7. Design & UX
+## 7. UX / Interaction Design
 
-### User Flow
+### Flow Diagram
 
 ```
-[Шаг 1: действие пользователя] → [Шаг 2: ответ системы] → [Шаг 3: ...] → Done
+User action
+    ↓
+UI form submission
+    ↓
+Backend validation
+    ↓
+Database write
+    ↓
+Success confirmation
 ```
 
-### Wireframes / Mockups
+### Interface Notes
 
-[Ссылка на макеты или краткое описание раскладки]
+Describe layout or interaction logic if wireframes are unavailable.
 
-### Accessibility Requirements
+### Error Handling
 
-- Соответствие WCAG 2.1 AA
-- Управление с клавиатуры
-- Поддержка скринридеров
-- Контраст текста >= 4.5:1
-
-### Error States
-
-| Error Condition | User-Facing Message | Recovery Action |
-|-----------------|---------------------|-----------------|
-| [condition] | [message] | [what user can do] |
+| Situation | Message | Recovery |
+|-----------|---------|----------|
+| Invalid input | "Please provide a valid value" | Correct form |
+| Network error | "Connection failed" | Retry |
 
 ---
 
-## 8. Non-Functional Requirements
+## 8. Quality Requirements
 
-| Requirement | Target | How to Validate |
-|-------------|--------|-----------------|
-| API latency | < 200ms p95 | Load test |
-| Test coverage | > 80% new code | Coverage command |
-| Accessibility | WCAG 2.1 AA | Axe audit |
-| Uptime | 99.9% | Monitoring |
+| Category | Requirement |
+|----------|-------------|
+| Performance | API response &lt; 200ms |
+| Reliability | 99.9% uptime |
+| Accessibility | WCAG 2.1 AA |
+| Code Quality | &gt;80% test coverage |
 
----
-
-## 9. Success Metrics
-
-### Primary Metrics (must move)
-
-| Metric | Baseline | Target | How Measured |
-|--------|----------|--------|--------------|
-| [metric] | [value] | [target] | [method] |
-
-### Guardrail Metrics (must not regress)
-
-- [Напр.: время загрузки страницы < X ms]
-- [Напр.: доля ошибок < X%]
-- [Напр.: фича Y продолжает работать]
+**Validation methods:** load testing · automated tests · accessibility scanning  
 
 ---
 
-## 10. Implementation Phases
+## 9. Development Plan
 
-Фазы согласуйте с общим планом проекта (например, `PROJECT.md`). Ниже — пример для этой фичи.
+Implementation should follow project architecture defined in **PROJECT.md**.
 
-### Phase 1: [Name — e.g., Data Layer]
+### Step 1 — Data Layer
 
-1. [Конкретная задача]
-2. [Написать тесты для этой фазы]
+**Tasks:**
 
-**Validation:** запуск команды валидации из проекта
+- implement database changes  
+- create migration  
+- add unit tests  
 
-### Phase 2: [Name — e.g., Service Layer]
+**Validation:** run project validation pipeline.
 
-1. [Конкретная задача]
-2. [Написать тесты]
+### Step 2 — Business Logic
 
-**Validation:** запуск команды валидации из проекта
+**Tasks:**
 
-### Phase 3+: [при необходимости]
+- implement service layer  
+- add input validation  
+- write tests  
 
----
+**Validation:** run project validation pipeline.
 
-## 11. Rollout Plan
+### Step 3 — API / Interface
 
-| Phase | Audience | Advance Criteria | Rollback Trigger |
-|-------|----------|------------------|------------------|
-| Alpha | Internal | No P0 bugs | Any data loss |
-| Beta | 10% users | Metrics OK | Error rate > 5% |
-| GA | 100% | Beta criteria met | Per incident |
+**Tasks:**
 
-### Feature Flags
+- implement endpoint  
+- add integration tests  
+- connect UI if applicable  
 
-- Flag: `[feature_flag_name]`
-- Default: off
-- Rollout: по проценту трафика
+**Validation:** run project validation pipeline.
 
 ---
 
-## 12. Risks & Mitigations
+## 10. Deployment Strategy
 
-| Risk | Likelihood | Impact | Mitigation |
-|------|------------|--------|------------|
-| [risk] | High/Med/Low | High/Med/Low | [strategy] |
+| Stage | Users | Requirement |
+|-------|--------|-------------|
+| Internal | team only | no critical issues |
+| Beta | limited users | positive metrics |
+| Release | all users | stability confirmed |
 
----
+### Feature Toggle
 
-## 13. Open Questions
-
-| # | Question | Owner | Due Date | Resolution |
-|---|----------|-------|----------|------------|
-| 1 | [question] | [who] | [date] | [TBD] |
-
----
-
-## 14. Boundaries
-
-### ALWAYS (агент может делать свободно)
-
-- Запускать тесты, линтеры, проверки типов
-- Создавать/редактировать файлы в рамках этой фичи
-- Следовать паттернам из кодовой базы
-
-### ASK FIRST (нужно согласование)
-
-- Добавлять новые зависимости
-- Менять схемы БД сверх описанного выше
-- Менять общие интерфейсы
-
-### NEVER
-
-- Менять существующие миграции
-- Коммитить секреты и учётные данные
-- Пропускать написание тестов
-- Обходить правила типобезопасности проекта
+- **Feature flag name:** `[flag_name]`  
+- **Default:** disabled  
+- **Rollout:** incremental percentage  
 
 ---
 
-## 15. Success Criteria
+## 11. Risk Assessment
 
-### Functional
-
-- [ ] Все критерии приёмки из user stories выполнены
-- [ ] API возвращает ожидаемые коды и контракты
-- [ ] Ошибки обработаны и показаны пользователю
-
-### Quality
-
-- [ ] Покрытие тестами > 80% по новому коду
-- [ ] Соблюдены правила типобезопасности
-- [ ] Линт и проверки типов проходят
-
-### User Experience
-
-- [ ] [Конкретные UX-цели для фичи]
+| Risk | Probability | Impact | Mitigation |
+|------|-------------|--------|------------|
+| Dependency delay | Medium | High | fallback plan |
+| Performance issue | Low | Medium | load testing |
 
 ---
 
-## 16. Validation Checklist
+## 12. Outstanding Questions
 
-- [ ] У всех критериев приёмки есть проходящие тесты
-- [ ] Команда валидации проекта проходит
-- [ ] Правила типобезопасности соблюдены
-- [ ] Нет секретов в коде
-- [ ] Миграция обратима (если применимо)
-- [ ] Success criteria выполнены
-- [ ] Code review пройден
+| # | Question | Responsible | Status |
+|---|----------|--------------|--------|
+| 1 | [topic] | [owner] | open |
+
+---
+
+## 13. Operating Rules for Agents
+
+### Allowed
+
+Agents may:
+
+- run tests  
+- update files related to this feature  
+- reuse existing patterns  
+
+### Requires Approval
+
+Agents must ask before:
+
+- introducing new dependencies  
+- modifying shared interfaces  
+- altering database schema beyond defined changes  
+
+### Forbidden
+
+Agents must never:
+
+- commit secrets  
+- remove tests  
+- modify historical migrations  
+- bypass type safety rules  
+
+---
+
+## 14. Completion Checklist
+
+Before marking the feature complete:
+
+- [ ] All acceptance conditions validated  
+- [ ] Tests passing  
+- [ ] Code coverage meets threshold  
+- [ ] No security issues  
+- [ ] Documentation updated  
+- [ ] Code review completed  
 
 ---
 
 ## Appendix
 
-### Glossary
+### Terminology
 
-| Term | Definition |
-|------|------------|
-| [term] | [definition] |
+| Term | Meaning |
+|------|---------|
+| [term] | definition |
 
-### Related Documents
+### Related Resources
 
-- [Ссылка на дизайн]
-- [Ссылки на смежные PRD]
-
-### Revision History
-
-| Date | Author | Changes |
-|------|--------|--------|
-| YYYY-MM-DD | [name] | Initial draft |
-
----
-
-## Agent Processing Notes
-
-> Помогают агентам корректно интерпретировать и выполнять PRD.
-
-### For Architect Agent
-
-- Фокус на Technical Context, изменениях API и модели данных
-- Ограничения задают технологический выбор
-- Зависимости задают порядок интеграции
-
-### For Implementer Agent
-
-- User Stories задают ЧТО строить
-- Acceptance Criteria задают КОГДА готово
-- Scope задаёт границы — «Out of Scope» соблюдать строго
-- Implementation Phases задают ПОРЯДОК работ
-
-### For Tester Agent
-
-- Каждый GIVEN/WHEN/THEN — минимум один тест-кейс
-- Таблица Error States — негативные тесты
-- NFR задают цели по производительности
-- Guardrail Metrics — требования к регрессионным тестам
-
-### For Security Agent
-
-- Проверить изменения модели данных на риски приватности/соответствия
-- В контрактах API — валидация и авторизация
-- Feature flags — проверка на обход авторизации
-
-### For UX Agent
-
-- User Flow задаёт последовательность взаимодействия
-- Accessibility Requirements обязательны
-- Error States задают все сценарии ошибок для пользователя
+- design document  
+- technical specification  
+- related PRDs  
