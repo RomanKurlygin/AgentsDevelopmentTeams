@@ -1,11 +1,15 @@
 # AGENTS.md
 
+> Universal agent instructions for all AI coding tools.  
+> Supported by: Claude Code, GitHub Copilot, Cursor, Codex, Devin, Factory, Gemini CLI, Jules, VS Code, Zed.
+
 Universal instructions for AI coding agents working in this repository.
 
 This file defines coding rules, development workflow, and behavioral constraints for AI tools such as Claude Code, GitHub Copilot, Cursor, Codex, and other AI development assistants.
 
-For feature requirements, see PRDs in docs/prds/.
-For technology stack and commands, see PROJECT.md.
+For feature requirements, see PRDs in `docs/prds/`.  
+For technology stack and commands, see **PROJECT.md**.  
+For Claude Code–specific setup (agents, commands, hooks), see **CLAUDE.md**.
 
 ## 1. Project Overview
 
@@ -29,7 +33,8 @@ docs/
   prds/            Product Requirements Documents
   architecture/    Technical design and system decisions
   plans/           Implementation plans and reports
-  templates/       Document templates
+  state/           Session state (STATE.md) for pause/resume workflows
+  templates/       Document templates (PRD, context)
 ```
 
 ## 2. Development Principles
@@ -93,6 +98,8 @@ THEN a new user account is created
 
 Every acceptance condition must be verifiable via tests.
 
+Use **`docs/templates/PRD-TEMPLATE.md`** as the starting point for new PRDs.
+
 ## 4. Code Style Rules
 
 General coding rules:
@@ -109,7 +116,7 @@ Additional rules:
 - prefer pure functions when possible
 - validate inputs at system boundaries
 
-Import rules and file naming conventions are defined in PROJECT.md.
+Import rules and file naming conventions are defined in **PROJECT.md**.
 
 ## 5. Testing Requirements
 
@@ -137,7 +144,7 @@ Avoid hardcoded datasets where possible.
 
 ### Test Organization
 
-Tests should follow the structure defined in PROJECT.md.
+Tests should follow the structure defined in **PROJECT.md**.
 
 **Example structure:**
 
@@ -240,7 +247,7 @@ Before committing:
 - run type checks
 - run build
 
-Validation commands are defined in PROJECT.md.
+Validation commands are defined in **PROJECT.md**.
 
 ## 9. Agent Permissions
 
@@ -312,4 +319,4 @@ Before completing a task:
 
 ---
 
-If multiple AI tools work in this repository, AGENTS.md acts as the shared behavioral contract for all automated coding agents.
+If multiple AI tools work in this repository, **AGENTS.md** acts as the shared behavioral contract for all automated coding agents.

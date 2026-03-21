@@ -26,6 +26,8 @@ PRDs must be created inside:
 docs/prds/
 ```
 
+Use the repository template **`docs/templates/PRD-TEMPLATE.md`** as the structural starting point (see also **Create-PRD.md** in the repo root).
+
 ---
 
 ## Core Principle

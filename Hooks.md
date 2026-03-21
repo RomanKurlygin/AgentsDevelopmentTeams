@@ -2,15 +2,19 @@
 
 The project includes a lifecycle hook system inspired by AgentsTeam, extended for PRD-driven development and self-improving skills.
 
+Configuration lives in **`.claude/settings.json`**. Matchers apply to **Skill** tool invocations (see that file for exact matchers and timeouts).
+
 ## Events
 
 | Hook | Matcher | Script |
 |------|-----------|--------|
-| PreToolUse | `prd-creator` | `.claude/hooks/pre-prd-check.sh` |
-| PostToolUse | `prd-creator` | `.claude/hooks/log-prd-result.sh` |
-| PostToolUse | `prd-creator` | `.claude/hooks/post-prd-eval.sh` |
-| PostToolUse | `prd-creator` | `.claude/hooks/prd-quality-check.sh` |
+| PreToolUse | `Skill` | `.claude/hooks/pre-prd-check.sh` |
+| PostToolUse | `Skill` | `.claude/hooks/log-prd-result.sh` |
+| PostToolUse | `Skill` | `.claude/hooks/prd-quality-check.sh` |
+| PostToolUse | `Skill` | `.claude/hooks/post-prd-eval.sh` |
 | Stop | — | `.claude/hooks/session-report.sh` |
+
+Hook scripts filter by skill name **`prd-creator`** where applicable (see each script).
 
 ## Libraries
 

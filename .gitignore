@@ -15,3 +15,6 @@ desktop.ini
 *.temp
 *.bak
 *.backup
+
+# Claude Code local overrides
+.claude/settings.local.json
